@@ -8,6 +8,10 @@
  */
 
 #include <stdio.h>
+#include <euler.h>
+
+#define PROBLEM 1
+#define ANSWER 233168
 
 int
 main(void)
@@ -18,6 +22,5 @@ main(void)
             sum += i;
         i++;
     }
-    printf("%i\n", sum);
-    return 0;
+    return check(PROBLEM, ANSWER, sum);
 }

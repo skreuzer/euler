@@ -8,8 +8,11 @@
  */
 
 #include <stdio.h>
+#include "euler.h"
 
 #define LIMIT 4000000
+#define PROBLEM 2
+#define ANSWER 4613732
 
 int
 main(int argc, char **argv)
@@ -24,6 +27,5 @@ main(int argc, char **argv)
         prev = next;
         next = cur;
     } while (cur < LIMIT);
-    printf("%i", sum);
-    return 0;
+    return check(PROBLEM, ANSWER, sum);
 }

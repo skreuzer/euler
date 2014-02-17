@@ -14,7 +14,7 @@ check(int problem, int answer, int result)
         color = KGRN;
         ret = 0;
     }
-    printf("%sProblm %i %s - Expected: %i; Got %i\n",
+    printf("%sProblem %i %s - Expected: %i; Got %i\n",
         color, problem, text, answer, result);
     return ret;
 }

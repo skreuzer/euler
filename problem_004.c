@@ -6,6 +6,10 @@
  */
 
 #include <stdio.h>
+#include "euler.h"
+
+#define PROBLEM 4
+#define ANSWER 906609
 
 int
 is_palindrome(unsigned int num)
@@ -37,6 +41,5 @@ main(int argc, char **argv)
             }
         }
     }
-    printf("%i\n", largest);
-    return 0;
+    return check(PROBLEM, ANSWER, largest);
 }

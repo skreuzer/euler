@@ -5,6 +5,10 @@
  */
 
 #include <stdio.h>
+#include "euler.h"
+
+#define PROBLEM 3
+#define ANSWER 6857
 
 int
 main(int argc, char **argv)
@@ -17,6 +21,5 @@ main(int argc, char **argv)
             x--;
         }
     }
-    printf("%i\n", x);
-    return 0;
+    return check(PROBLEM, ANSWER, x);
 }

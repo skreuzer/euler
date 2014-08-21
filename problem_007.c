@@ -8,13 +8,14 @@
 int
 is_prime(int num)
 {
+    int y;
     if(num < 2) {
         return 0;
     } else if(num == 2) {
         return 1;
     }
 
-    for(int y = 2; y < num; y++) {
+    for(y = 2; y < num; y++) {
         if(num % y == 0) {
             return 0;
         }

@@ -15,7 +15,8 @@
 
 int even_div(int num)
 {
-    for(int x = 1; x <= 20; x++) {
+    int x;
+    for(x = 1; x <= 20; x++) {
         if(num % x != 0) {
             return 0;
         }

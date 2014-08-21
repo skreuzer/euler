@@ -9,8 +9,8 @@
 int
 main(int argc, char **argv)
 {
-    double sum = 0, square = 0;
-    for(double x = 0; x <= 100; x++) {
+    double x, sum = 0, square = 0;
+    for(x = 0; x <= 100; x++) {
         sum += pow(x, 2.0);
         square += x;
     }

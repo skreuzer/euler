@@ -31,9 +31,9 @@ int
 main(int argc, char **argv)
 {
     int largest = 0;
-    int z;
-    for(int x = 100; x <= 999; x++) {
-        for(int y = 100; y <= 999; y++) {
+    int x, y, z;
+    for(x = 100; x <= 999; x++) {
+        for(y = 100; y <= 999; y++) {
             z = x * y;
             if(is_palindrome(z) == 1) {
                 if(largest < z)

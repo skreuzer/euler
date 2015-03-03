@@ -29,6 +29,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include "euler.h"
 
 const char *num = "73167176531330624919225119674426574742355349194934\
 96983520312774506326239578318016984801869478851843\
@@ -68,9 +69,7 @@ main(int argc, char **argv) {
         }
         output[DIGITS] = '\0';
         printf("%02d - %s - %llu\n", i, output, product);
-        if(product > largest) {
-            largest = product;
-        }
+        largest = max(product, largest);
     }
     printf("%llu\n", largest);
     return(0);

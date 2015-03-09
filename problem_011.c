@@ -25,13 +25,71 @@ const char *num =
 0170547183515469169233486143520189196748";
 
 #define SIZE 20
+#define max(a, b)  ((a) > (b) ? (a) : (b))
+
+uint64_t
+check_largest(int values[4], uint64_t largest) {
+    uint64_t product = values[0];
+    uint64_t result = 0;
+
+    for(int x = 1; x < 4; x++) {
+        product *= values[x];
+    }
+    result = max(product, largest);
+    return result;
+}
+
+uint64_t
+check_location(int x, int y, int board[20][20], uint64_t largest) {
+    int values[4];
+
+    values[0] = board[x][y];
+
+    // check left  if x >= 3
+    if(x >= 3) {
+        values[1] = board[x-1][y];
+        values[2] = board[x-2][y];
+        values[3] = board[x-3][y];
+    }
+
+    largest = check_largest(values, largest);
+
+    // check right if x <= 16
+    if(x <= 16) {
+        values[1] = board[x+1][y];
+        values[2] = board[x+2][y];
+        values[3] = board[x+3][y];
+    }
+
+    largest = check_largest(values, largest);
+
+    // check down if y <= 16
+    if(y <= 16) {
+        values[1] = board[x][y+1];
+        values[2] = board[x][y+2];
+        values[3] = board[x][y+3];
+    }
+
+    largest = check_largest(values, largest);
+
+    // check up if y >= 3
+    if(y >= 3) {
+        values[1] = board[x][y-1];
+        values[2] = board[x][y-2];
+        values[3] = board[x][y-3];
+    }
+
+    largest = check_largest(values, largest);
+
+    return largest;
+}
 
 int
 main(int argc, char **argv) {
     int board[SIZE][SIZE];
     int x = 0, y = 0, loc = -1;
+    uint64_t largest = 0, result;
     char buf[3];
-    int largest = 0;
 
     for(x = 0; x < SIZE; x++) {
         for(y = 0; y < SIZE; y++) {
@@ -43,5 +101,11 @@ main(int argc, char **argv) {
         }
     }
 
+    for(x = 0; x < SIZE; x++) {
+        for(y = 0; y < SIZE; y++) {
+            largest = check_location(x, y, board, largest);
+        }
+    }
+    printf("%llu\n", largest);
     return(0);
 }

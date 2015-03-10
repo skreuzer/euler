@@ -45,16 +45,9 @@ check_location(int x, int y, int board[20][20], uint64_t largest) {
 
     values[0] = board[x][y];
 
-    // check left  if x >= 3
-    if(x >= 3) {
-        values[1] = board[x-1][y];
-        values[2] = board[x-2][y];
-        values[3] = board[x-3][y];
-    }
-
     largest = check_largest(values, largest);
 
-    // check right if x <= 16
+    // check right
     if(x <= 16) {
         values[1] = board[x+1][y];
         values[2] = board[x+2][y];
@@ -63,7 +56,7 @@ check_location(int x, int y, int board[20][20], uint64_t largest) {
 
     largest = check_largest(values, largest);
 
-    // check down if y <= 16
+    // check down
     if(y <= 16) {
         values[1] = board[x][y+1];
         values[2] = board[x][y+2];
@@ -72,11 +65,20 @@ check_location(int x, int y, int board[20][20], uint64_t largest) {
 
     largest = check_largest(values, largest);
 
-    // check up if y >= 3
-    if(y >= 3) {
-        values[1] = board[x][y-1];
-        values[2] = board[x][y-2];
-        values[3] = board[x][y-3];
+    // check right diagonal
+    if(((x + 3) < 20) && ((y + 3) < 20)) {
+        values[1] = board[x+1][y+1];
+        values[2] = board[x+2][y+2];
+        values[3] = board[x+3][y+3];
+    }
+
+    largest = check_largest(values, largest);
+
+    // check left diagonal
+    if(((x - 3) > 0) && ((y + 3) < 20)) {
+        values[1] = board[x-1][y+1];
+        values[2] = board[x-2][y+2];
+        values[3] = board[x-3][y+3];
     }
 
     largest = check_largest(values, largest);

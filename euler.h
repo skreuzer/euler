@@ -10,5 +10,6 @@
 
 int check(int, int, int);
 void error(const char *str);
+int is_prime(int num);
 
 #endif

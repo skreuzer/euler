@@ -6,24 +6,6 @@
 #define ANSWER 104743
 
 int
-is_prime(int num)
-{
-    int y;
-    if(num < 2) {
-        return 0;
-    } else if(num == 2) {
-        return 1;
-    }
-
-    for(y = 2; y < num; y++) {
-        if(num % y == 0) {
-            return 0;
-        }
-    }
-    return 1;
-}
-
-int
 main(int argc, char **argv)
 {
     int number = 0, found = 0;
